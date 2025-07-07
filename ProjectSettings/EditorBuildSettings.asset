@@ -8,4 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartupScene.unity
     guid: 0f73ea43189ac8e4fb93b9a2068533d4
+  - enabled: 1
+    path: Assets/Scenes/ARview.unity
+    guid: bdcfb94e9f04bb84bb50cb62181ba497
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 0b845c8b49b62634d88e932b6cc77d15
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: d1b428ce4db9ea04fa3d6c671865098e
+  - enabled: 1
+    path: Assets/Scenes/ProductItemsScene.unity
+    guid: ed68c1fcce9c8034b85594042ef806da
+  - enabled: 1
+    path: Assets/Scenes/ProductScene.unity
+    guid: dfdae446d075f5049b14f84d54cc48ef
+  - enabled: 1
+    path: Assets/Scenes/ProfileScene.unity
+    guid: fb367692005c5004cbe32fb1866b5534
+  - enabled: 1
+    path: Assets/Scenes/SignupScene.unity
+    guid: 809294f9b1df5794a9f251c8ccc9f162
   m_configObjects: {}

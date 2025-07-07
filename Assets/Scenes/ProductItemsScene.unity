@@ -1036,7 +1036,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 477482250}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HomeScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &477482250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,8 +1099,9 @@ GameObject:
   - component: {fileID: 517967123}
   - component: {fileID: 517967122}
   - component: {fileID: 517967121}
+  - component: {fileID: 517967124}
   m_Layer: 5
-  m_Name: Item2 - Button
+  m_Name: Cushion Sofa - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1173,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 517967122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &517967122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1224,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517967119}
   m_CullTransparentMesh: 1
+--- !u!225 &517967124
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517967119}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &544398342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,8 +1370,9 @@ GameObject:
   - component: {fileID: 569924207}
   - component: {fileID: 569924206}
   - component: {fileID: 569924205}
+  - component: {fileID: 569924208}
   m_Layer: 5
-  m_Name: Item1 - Button
+  m_Name: Leather Sofa - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,7 +1445,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 569924206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &569924206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,6 +1496,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569924203}
   m_CullTransparentMesh: 1
+--- !u!225 &569924208
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569924203}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &613640542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,8 +1655,9 @@ GameObject:
   - component: {fileID: 624589950}
   - component: {fileID: 624589949}
   - component: {fileID: 624589948}
+  - component: {fileID: 624589951}
   m_Layer: 5
-  m_Name: Item3 - Button
+  m_Name: L-Shaped Modular - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1729,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 624589949}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &624589949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,6 +1780,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624589946}
   m_CullTransparentMesh: 1
+--- !u!225 &624589951
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624589946}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &657095056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,8 +1939,9 @@ GameObject:
   - component: {fileID: 666752055}
   - component: {fileID: 666752054}
   - component: {fileID: 666752053}
+  - component: {fileID: 666752056}
   m_Layer: 5
-  m_Name: Item5 - Button
+  m_Name: Tea - Table - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,7 +2013,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 666752054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &666752054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,6 +2064,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666752051}
   m_CullTransparentMesh: 1
+--- !u!225 &666752056
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666752051}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &681429882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2868,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 970588865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductItemsScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &970588865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,8 +3119,9 @@ GameObject:
   - component: {fileID: 1082472275}
   - component: {fileID: 1082472274}
   - component: {fileID: 1082472273}
+  - component: {fileID: 1082472276}
   m_Layer: 5
-  m_Name: Item6 - Button
+  m_Name: Modular Cushion Chaise - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3068,7 +3193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1082472274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1082472274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3107,6 +3244,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082472271}
   m_CullTransparentMesh: 1
+--- !u!225 &1082472276
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082472271}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1183573174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4033,8 +4182,9 @@ GameObject:
   - component: {fileID: 1417517051}
   - component: {fileID: 1417517050}
   - component: {fileID: 1417517049}
+  - component: {fileID: 1417517052}
   m_Layer: 5
-  m_Name: Item4 - Button
+  m_Name: Modular Cushion Chair - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4106,7 +4256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1417517050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProductScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1417517050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,6 +4307,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417517047}
   m_CullTransparentMesh: 1
+--- !u!225 &1417517052
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417517047}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1429229594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,6 +4724,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634168706}
   m_CullTransparentMesh: 1
+--- !u!1 &1681106952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681106953}
+  - component: {fileID: 1681106954}
+  m_Layer: 0
+  m_Name: SearchManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681106953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681106952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585, y: 1266, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681106954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681106952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b4c5e2d6bc95642902a96d447256f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInput: {fileID: 1517065157}
+  contentParent: {fileID: 0}
+  productItems:
+  - {fileID: 569924203}
+  - {fileID: 517967119}
+  - {fileID: 624589946}
+  - {fileID: 1417517047}
+  - {fileID: 666752051}
+  - {fileID: 1082472271}
 --- !u!1 &1790775434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,6 +4929,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805211975}
   m_CullTransparentMesh: 1
+--- !u!1 &1806481011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806481013}
+  - component: {fileID: 1806481012}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1806481012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806481011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0c04e3860bb5249b0cf9e368a9f446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1806481013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806481011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585, y: 1266, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810810959
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,7 +5787,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2047228209}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806481012}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ProfileScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2047228209
 MonoBehaviour:
   m_ObjectHideFlags: 0
