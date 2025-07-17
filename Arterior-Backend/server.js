@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-const productRoutes = require('./routes/productRoutes');
-app.use('/api/products', productRoutes);
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 // Connect DB and Start Server
 mongoose.connect(process.env.MONGO_URI, {
