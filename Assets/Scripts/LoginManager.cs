@@ -14,8 +14,7 @@ public class LoginManager : MonoBehaviour
     public TextMeshProUGUI toggleButtonText;
 
     private bool isPasswordVisible = false;
-
-    private string loginURL = "http://192.168.1.12:5000/api/users/login";
+    private string loginURL = "http://192.168.0.106:5000/api/users/login";
     public GameObject popupPanel;
     public TextMeshProUGUI popupText;
 
@@ -67,12 +66,20 @@ public class LoginManager : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseText = request.downloadHandler.text;
+            string token = ExtractToken(responseText);
+            Debug.Log("Extracted Token: " + token);
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                PlayerPrefs.SetString("jwtToken", token);
+                PlayerPrefs.Save();
+            }
 
             if (request.responseCode == 200 && responseText.Contains("Login successful"))
             {
                 ShowPopup("Login Successful!");
                 yield return new WaitForSeconds(1.5f);
-                SceneManager.LoadScene("HomeScene");
+                SceneManager.LoadScene("ProfileScene");
             }
             else
             {
@@ -82,6 +89,20 @@ public class LoginManager : MonoBehaviour
         else
         {
             ShowPopup("Network Error: " + request.error);
+        }
+    }
+
+    string ExtractToken(string json)
+    {
+        try
+        {
+            TokenResponse tokenResponse = JsonUtility.FromJson<TokenResponse>(json);
+            return tokenResponse.token;
+        }
+        catch
+        {
+            Debug.LogError("Token parsing failed. Raw JSON: " + json);
+            return "";
         }
     }
 
@@ -95,5 +116,11 @@ public class LoginManager : MonoBehaviour
             email = e;
             password = p;
         }
+    }
+
+    [System.Serializable]
+    public class TokenResponse
+    {
+        public string token;
     }
 }
