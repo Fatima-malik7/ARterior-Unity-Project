@@ -1,8 +1,8 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class SignupManager : MonoBehaviour
 {
@@ -10,18 +10,48 @@ public class SignupManager : MonoBehaviour
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
     public TMP_InputField mobileInput;
-    public TextMeshProUGUI messageText;
+    public Button signupButton;
+    public Button togglePasswordButton;
+    public TextMeshProUGUI toggleButtonText;
 
-    private string registerUrl = "http://192.168.1.12:5000/api/users/register"; // Replace with your IP address
+    private bool isPasswordVisible = false;
+    private string registerUrl = "http://192.168.1.12:5000/api/users/register";
+    public GameObject popupPanel;
+    public TextMeshProUGUI popupText;
 
-    public void OnSignupButtonClicked()
+    void ShowPopup(string message)
+    {
+        popupText.text = message;
+        popupPanel.SetActive(true);
+    }
+
+    void Start()
+    {
+        signupButton.onClick.AddListener(OnSignupButtonClicked);
+        togglePasswordButton.onClick.AddListener(TogglePasswordVisibility);
+        passwordInput.contentType = TMP_InputField.ContentType.Password;
+        passwordInput.ForceLabelUpdate();
+    }
+
+    void TogglePasswordVisibility()
+    {
+        isPasswordVisible = !isPasswordVisible;
+        passwordInput.contentType = isPasswordVisible
+            ? TMP_InputField.ContentType.Standard
+            : TMP_InputField.ContentType.Password;
+        toggleButtonText.text = isPasswordVisible ? "Hide" : "Show";
+        passwordInput.ForceLabelUpdate();
+    }
+
+    void OnSignupButtonClicked()
     {
         StartCoroutine(SignupUser());
     }
 
     IEnumerator SignupUser()
     {
-        // Create user JSON
+        ShowPopup("Creating account...");
+
         string jsonData = JsonUtility.ToJson(new SignupData
         {
             username = usernameInput.text,
@@ -30,7 +60,6 @@ public class SignupManager : MonoBehaviour
             password = passwordInput.text
         });
 
-        // Send POST request
         UnityWebRequest request = new UnityWebRequest(registerUrl, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -41,13 +70,22 @@ public class SignupManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Signup successful!");
-            messageText.text = "Signup successful!";
+            if (request.responseCode == 201)
+            {
+                ShowPopup("Signup successful!");
+            }
+            else if (request.responseCode == 409)
+            {
+                ShowPopup("Email or mobile already registered");
+            }
+            else
+            {
+                ShowPopup("Unexpected server response");
+            }
         }
         else
         {
-            Debug.LogError("Signup failed: " + request.error);
-            messageText.text = "Signup failed: " + request.downloadHandler.text;
+            ShowPopup("Signup failed: " + request.error);
         }
     }
 

@@ -1,37 +1,61 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
-    public TMP_InputField usernameInput;
+    public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
     public Button loginButton;
-    public TextMeshProUGUI statusText;
+    public Button togglePasswordButton;
+    public TextMeshProUGUI toggleButtonText;
 
-    private string loginURL = "http://192.168.1.12:5000/api/users/login"; // replace with your actual URL
+    private bool isPasswordVisible = false;
+
+    private string loginURL = "http://192.168.1.12:5000/api/users/login";
+    public GameObject popupPanel;
+    public TextMeshProUGUI popupText;
+
+    void ShowPopup(string message)
+    {
+        popupText.text = message;
+        popupPanel.SetActive(true);
+    }
 
     void Start()
     {
         loginButton.onClick.AddListener(OnLoginClicked);
+        togglePasswordButton.onClick.AddListener(TogglePasswordVisibility);
+        passwordInput.contentType = TMP_InputField.ContentType.Password;
+        passwordInput.ForceLabelUpdate();
     }
 
     void OnLoginClicked()
     {
-        string username = usernameInput.text;
+        string email = emailInput.text;
         string password = passwordInput.text;
-        StartCoroutine(SendLoginRequest(username, password));
+        StartCoroutine(SendLoginRequest(email, password));
     }
 
-    IEnumerator SendLoginRequest(string username, string password)
+    void TogglePasswordVisibility()
     {
-        statusText.text = "Logging in...";
+        isPasswordVisible = !isPasswordVisible;
+        passwordInput.contentType = isPasswordVisible
+            ? TMP_InputField.ContentType.Standard
+            : TMP_InputField.ContentType.Password;
+        toggleButtonText.text = isPasswordVisible ? "Hide" : "Show";
+        passwordInput.ForceLabelUpdate();
+    }
 
-        // Prepare JSON
-        string jsonBody = JsonUtility.ToJson(new LoginData(username, password));
-        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
+    IEnumerator SendLoginRequest(string email, string password)
+    {
+        ShowPopup("Logging in...");
+
+        string jsonBody = JsonUtility.ToJson(new LoginData(email, password));
+        byte[] jsonToSend = System.Text.Encoding.UTF8.GetBytes(jsonBody);
 
         UnityWebRequest request = new UnityWebRequest(loginURL, "POST");
         request.uploadHandler = new UploadHandlerRaw(jsonToSend);
@@ -42,27 +66,33 @@ public class LoginManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Login Success: " + request.downloadHandler.text);
-            statusText.text = "Login Successful!";
-            // Navigate to next scene if needed
+            string responseText = request.downloadHandler.text;
+
+            if (request.responseCode == 200 && responseText.Contains("Login successful"))
+            {
+                ShowPopup("Login Successful!");
+                yield return new WaitForSeconds(1.5f);
+                SceneManager.LoadScene("HomeScene");
+            }
+            else
+            {
+                ShowPopup("Login Failed: Invalid email or password");
+            }
         }
         else
         {
-            Debug.LogError("Login Failed: " + request.error);
-            statusText.text = "Login Failed: " + request.error;
+            ShowPopup("Network Error: " + request.error);
         }
     }
 
-    // Login data structure
     [System.Serializable]
     public class LoginData
     {
-        public string username;
+        public string email;
         public string password;
-
-        public LoginData(string u, string p)
+        public LoginData(string e, string p)
         {
-            username = u;
+            email = e;
             password = p;
         }
     }
