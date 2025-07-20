@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScene.unity
     guid: d1b428ce4db9ea04fa3d6c671865098e
   - enabled: 1
-    path: Assets/Scenes/ProductItemsScene.unity
+    path: Assets/Scenes/ProductItemsScene(old).unity
     guid: ed68c1fcce9c8034b85594042ef806da
   - enabled: 1
     path: Assets/Scenes/ProductScene.unity
