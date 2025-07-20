@@ -4,12 +4,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
 // Routes
-const productRoutes = require('./routes/productRoutes');
-app.use('/api/products', productRoutes);
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 // Connect DB and Start Server
 mongoose.connect(process.env.MONGO_URI, {
@@ -22,4 +24,4 @@ mongoose.connect(process.env.MONGO_URI, {
     console.log(`🚀 Server running on http://localhost:${process.env.PORT}`);
   });
 })
-.catch((err) => console.error('MongoDB error:', err));
+.catch((err) => console.error('❌ MongoDB connection error:', err));
