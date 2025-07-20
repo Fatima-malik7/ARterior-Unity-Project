@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SignupManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class SignupManager : MonoBehaviour
     public TextMeshProUGUI toggleButtonText;
 
     private bool isPasswordVisible = false;
-    private string registerUrl = "http://192.168.1.12:5000/api/users/register";
+    private string registerUrl = "http://192.168.0.106:5000/api/users/register";
     public GameObject popupPanel;
     public TextMeshProUGUI popupText;
 
@@ -70,9 +71,21 @@ public class SignupManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
+            string responseText = request.downloadHandler.text;
+            string token = ExtractToken(responseText);
+            Debug.Log("Extracted Token: " + token);
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                PlayerPrefs.SetString("jwtToken", token);
+                PlayerPrefs.Save();
+            }
+
             if (request.responseCode == 201)
             {
                 ShowPopup("Signup successful!");
+                yield return new WaitForSeconds(1.5f);
+                SceneManager.LoadScene("ProfileScene");
             }
             else if (request.responseCode == 409)
             {
@@ -89,6 +102,20 @@ public class SignupManager : MonoBehaviour
         }
     }
 
+    string ExtractToken(string json)
+    {
+        try
+        {
+            TokenResponse tokenResponse = JsonUtility.FromJson<TokenResponse>(json);
+            return tokenResponse.token;
+        }
+        catch
+        {
+            Debug.LogError("Token parsing failed. Raw JSON: " + json);
+            return "";
+        }
+    }
+
     [System.Serializable]
     class SignupData
     {
@@ -96,5 +123,11 @@ public class SignupManager : MonoBehaviour
         public string email;
         public string mobile;
         public string password;
+    }
+
+    [System.Serializable]
+    public class TokenResponse
+    {
+        public string token;
     }
 }

@@ -60,6 +60,21 @@ router.post('/login', async (req, res) => {
         console.error(err);
         res.status(500).json({ error: 'Server error' });
     }
+}); 
+// ✅ Get Current User Profile
+router.get('/me', async (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).json({ error: 'No token' });
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        const user = await User.findById(decoded.userId).select('-password');
+        if (!user) return res.status(404).json({ error: 'User not found' });
+        res.json(user);
+    } catch (err) {
+        res.status(401).json({ error: 'Invalid token' });
+    }
 });
+
 
 module.exports = router;
