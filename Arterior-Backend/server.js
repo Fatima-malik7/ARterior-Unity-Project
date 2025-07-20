@@ -9,9 +9,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use('/images', express.static('images'));
+
+
 // Routes
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
+
+const furnitureRoutes = require('./routes/furnitureRoutes');
+app.use('/api/furniture', furnitureRoutes);
 
 // Connect DB and Start Server
 mongoose.connect(process.env.MONGO_URI, {
@@ -20,7 +26,8 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => {
   console.log('✅ MongoDB connected');
-  app.listen(process.env.PORT, () => {
+  // app.listen(process.env.PORT, () => {
+  app.listen(process.env.PORT, '0.0.0.0', () => {  
     console.log(`🚀 Server running on http://localhost:${process.env.PORT}`);
   });
 })
